@@ -49,7 +49,7 @@ while True:
     rows, cols, _ = paper.shape
     textX = (cols - textsize[0]) // 2
     textY = (rows + textsize[1]) // 2
-    cv2.putText(paper, 'This is paper', (textX, textY), font, font_scale, (1, 1, 1), font_thickness)
+    cv2.putText(paper, text, (textX, textY), font, font_scale, (1, 1, 1), font_thickness)
 
     M = cv2.getPerspectiveTransform(np.float32([[0, rows], [0, 0], [cols, 0], [cols, rows]]), np.float32(box))
     paper = cv2.warpPerspective(paper, M, (image.shape[1], image.shape[0]))
